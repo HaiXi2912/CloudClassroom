@@ -20,6 +20,11 @@ frontend/node_modules/
 frontend/dist/
 frontend/.env.local
 frontend/.env.*.local
+frontend/.env.development
+frontend/.env.production
+frontend/.env
+frontend/package-lock.json
+**/package-lock.json
 
 # ===== Local tools =====
 .devtools/
@@ -27,3 +32,8 @@ frontend/.env.*.local
 # ===== Misc =====
 *.tmp
 *.bak
+
+# ===== Local backups / secrets =====
+sql/backup_*.sql
+backend/src/main/resources/application.yml
+!backend/src/main/resources/application.yml.example
