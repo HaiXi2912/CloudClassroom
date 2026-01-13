@@ -1,0 +1,103 @@
+/* 全局毛玻璃（Glassmorphism）样式：只使用 Element Plus 主题变量，不硬编码颜色/字体/阴影 */
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--el-text-color-primary);
+  background:
+    radial-gradient(
+      900px circle at 12% 10%,
+      color-mix(in srgb, var(--el-color-primary) 18%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px circle at 88% 22%,
+      color-mix(in srgb, var(--el-color-success) 14%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px circle at 65% 95%,
+      color-mix(in srgb, var(--el-color-warning) 12%, transparent),
+      transparent 60%
+    ),
+    var(--el-bg-color-page);
+}
+
+/* 通用玻璃面板 */
+.cc-glass {
+  background: color-mix(in srgb, var(--el-bg-color) 72%, transparent);
+  border: 1px solid var(--el-border-color-lighter);
+  box-shadow: var(--el-box-shadow-light);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-radius: var(--el-border-radius-base);
+  overflow: hidden;
+}
+
+/* Element Plus 组件适配 */
+.el-card.cc-glass {
+  background: color-mix(in srgb, var(--el-bg-color) 72%, transparent);
+}
+
+.el-card.cc-glass .el-card__header {
+  border-bottom-color: var(--el-border-color-lighter);
+}
+
+.el-table.cc-glass {
+  background: transparent;
+  border-radius: var(--el-border-radius-base);
+  overflow: hidden;
+}
+
+.el-table.cc-glass th.el-table__cell {
+  background: color-mix(in srgb, var(--el-bg-color) 68%, transparent);
+}
+
+/* 页面容器：让内容更像“平台”而不是“后台表格” */
+.cc-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+/* 统一页面设计语言（标题/操作区/间距一致） */
+.cc-page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.cc-page-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.cc-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cc-page-meta {
+  margin-bottom: 12px;
+  color: var(--el-text-color-secondary);
+  font-size: 12px;
+}
+
+.cc-center {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 16px;
+}

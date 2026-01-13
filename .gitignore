@@ -1,0 +1,29 @@
+# ===== OS / IDE =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Backend (Java) =====
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# ===== Frontend (Node) =====
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# ===== Local tools =====
+.devtools/
+
+# ===== Misc =====
+*.tmp
+*.bak

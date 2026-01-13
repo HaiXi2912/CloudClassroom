@@ -1,0 +1,51 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: cloudclassroom-backend
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud_classroom?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+  servlet:
+    multipart:
+      # 文件上传限制（最小可用）：避免默认 1MB 导致上传失败。
+      max-file-size: 200MB
+      max-request-size: 200MB
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+
+# Swagger / OpenAPI
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
+cloudclassroom:
+  jwt:
+    # 说明：这是开发环境密钥，课堂作业可用；上线需替换并妥善保管
+    secret: "CloudClassroom-Dev-Secret-Change-Me-2026"
+    expire-seconds: 7200
+
+  file:
+    # 本地文件存储目录（相对 backend 工作目录）；上传时自动创建。
+    base-dir: "./data/uploads"
+    # 最大上传大小（字节）。
+    max-size-bytes: 209715200
+    # 允许的扩展名（小写，不含点）。
+    allowed-ext: "pdf,ppt,pptx,doc,docx,txt,mp4,webm"
